@@ -3,11 +3,7 @@ from knack import Knack
 from knack_api_library import get_contact_object
 import time
 
-class KnackDatasets:
-    pass
-
-
-class KnackDataset(Knack):
+class Dataset(Knack):
     datasets = 0
     def __init__(self, ident):
         self.ident = ident
@@ -31,7 +27,7 @@ class KnackDataset(Knack):
         self.contact_point = contact_obj.fn
         self.contact_email = contact_obj.email
         self.contact_phone = contact_obj.phone
-        KnackDataset.datasets += 1
+        Dataset.datasets += 1
         
     # instance values for contact
     @staticmethod
@@ -46,16 +42,4 @@ class KnackDataset(Knack):
             return time.strftime('%Y-%m-%d', time.gmtime(stamp/1000.)) 
         else:
             return 'none'
-    
-    
-        
-        
-dataset = KnackDataset('57b21c8e67d437161a265671')
-print(dataset.display(dataset.keywords_list))
-print(dataset.contact_point)
-print(KnackDataset.datasets)
-# print(dataset.title)
-# print(dataset.types)
-# print('types separated')
-# print(dataset.list_values_piped(dataset.types))
-# print(help(KnackDataset))
+

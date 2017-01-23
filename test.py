@@ -1,3 +1,15 @@
 from knack_api_library import collect_records
+from dataset import Dataset
 
-print(collect_records(2)[0])
+
+print(collect_records(2)[0]['id'])
+
+dataset = Dataset('57b21c8e67d437161a265671')
+print(dataset.display(dataset.keywords_list))
+print(dataset.contact_point)
+print(Dataset.datasets)
+# print(dataset.title)
+# print(dataset.types)
+# print('types separated')
+# print(dataset.list_values_piped(dataset.types))
+# print(help(KnackDataset))

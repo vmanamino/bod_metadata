@@ -24,18 +24,42 @@ knack_app_id = os.environ['KNACK_APPLICATION_ID']
     
 knack_api_key= os.environ['KNACK_API_KEY']
 
+def get_knack_records(obj_num, page="1"):
+    
+    knack_object = 'object_'+ str(obj_num)
+    
+    url = 'https://api.knack.com/v1/objects/'+knack_object+'/records?page='+page
+      
+    request = add_knack_headers(urllib2.Request(url))                  
+    
+    try:
+        r = urllib2.urlopen(request)
+        code = r.code
+    except urllib2.HTTPError as err:
+        code = err.code
+    
+    # return r    
+    if code == 200:
+        response = r
+        data = json.loads(response.read())
+        records = collect_records(data)
+        
+    else:
+        records = "API response unsuccessful, no records got"
+    
+    return records
 
-
+def collect_records(data):
+    pages = data['total_pages']
+    return pages
+    
 def get_knack_dataset(ident):
    
     # will have to prep request to add ID and KEY as headers
     # had problems adding id as payload, should be tacked on at end
     url = 'https://api.knack.com/v1/objects/object_2/records/'+ident
-    request = urllib2.Request(url)
-                        
-    request.add_header('X-Knack-Application-Id', knack_app_id)
     
-    request.add_header('X-Knack-REST-API-Key', knack_api_key)
+    request = add_knack_headers(urllib2.Request(url))   
     
     try:
         r = urllib2.urlopen(request)
@@ -53,11 +77,8 @@ def get_contact_object(obj):
     
     # will have to prep request to add ID and KEY as headers
     url = 'https://api.knack.com/v1/objects/object_36/records/'+contact_identifier
-    request = urllib2.Request(url)
-                        
-    request.add_header('X-Knack-Application-Id', knack_app_id)
     
-    request.add_header('X-Knack-REST-API-Key', knack_api_key)
+    request = add_knack_headers(urllib2.Request(url))  
     
     try:
         r = urllib2.urlopen(request)
@@ -71,20 +92,12 @@ def get_contact_object(obj):
     
     contact_info.insert(0, attributes[0]['identifier'])
     
-    contact_obj = Contact(contact_info[0], contact_info[1], contact_info[2])
-    
-    # contact_info = json.loads(gov_entity_response.read())
-    
-    return contact_obj
+    return contact_info
     
 def get_gov_entity_info(identifier):
     url = 'https://api.knack.com/v1/objects/object_3/records/'+identifier
     
-    request = urllib2.Request(url)
-                        
-    request.add_header('X-Knack-Application-Id', knack_app_id)
-    
-    request.add_header('X-Knack-REST-API-Key', knack_api_key)
+    request = add_knack_headers(urllib2.Request(url))  
     
     try:
         r = urllib2.urlopen(request)
@@ -107,8 +120,13 @@ def get_gov_entity_info(identifier):
         
     return info
     
-class Contact:
-    def __init__(self, fn, email, phone):
-        self.fn = fn
-        self.email = email
-        self.phone = phone
+# for authorization, authentication
+def add_knack_headers(request):
+    
+    request.add_header('X-Knack-Application-Id', knack_app_id)
+    
+    request.add_header('X-Knack-REST-API-Key', knack_api_key)
+    
+    return request
+    
+    

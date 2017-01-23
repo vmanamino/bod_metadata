@@ -41,17 +41,29 @@ def get_knack_records(obj_num, page="1"):
     # return r    
     if code == 200:
         response = r
-        data = json.loads(response.read())
-        records = collect_records(data)
+        return json.loads(response.read())
         
     else:
-        records = "API response unsuccessful, no records got"
+        return "API response unsuccessful, no records got"
+
+def collect_records(obj_num):
+    data = get_knack_records(obj_num)
+    pages = data['total_pages']
+    if pages > 1:
+    
+        # first page of records
+        records = data['records']
+        range_end_boundary = pages + 1
+    
+        # start on second page always
+        for i in range(2, range_end_boundary):
+            data = get_knack_records(obj_num, str(i))
+            records += data['records']
+    
+    else:
+        records = data['records']
     
     return records
-
-def collect_records(data):
-    pages = data['total_pages']
-    return pages
     
 def get_knack_dataset(ident):
    

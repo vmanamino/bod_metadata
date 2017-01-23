@@ -26,7 +26,7 @@ knack_api_key= os.environ['KNACK_API_KEY']
 
 def get_knack_records(obj_num, page="1"):
     
-    knack_object = 'object_'+ str(obj_num)
+    knack_object = string_knack_obj(obj_num)
     
     url = 'https://api.knack.com/v1/objects/'+knack_object+'/records?page='+page
       
@@ -35,16 +35,11 @@ def get_knack_records(obj_num, page="1"):
     try:
         r = urllib2.urlopen(request)
         code = r.code
-    except urllib2.HTTPError as err:
-        code = err.code
-    
-    # return r    
-    if code == 200:
         response = r
         return json.loads(response.read())
+    except urllib2.HTTPError as err:
+        return err.code
         
-    else:
-        return "API response unsuccessful, no records got"
 
 def collect_records(obj_num):
     data = get_knack_records(obj_num)
@@ -64,6 +59,25 @@ def collect_records(obj_num):
         records = data['records']
     
     return records
+    
+def record_specs(obj_num):
+    
+    knack_object = string_knack_obj(obj_num)
+    
+    url = 'https://api.knack.com/v1/objects/'+knack_object
+    
+    request = add_knack_headers(urllib2.Request(url))
+    
+    try:
+        r = urllib2.urlopen(request)
+        code = r.code
+        response = r
+        return json.loads(response.read())['object']
+    except urllib2.HTTPError as err:
+        return err.code
+    
+    
+    
     
 def get_knack_dataset(ident):
    
@@ -131,6 +145,10 @@ def get_gov_entity_info(identifier):
         info.append('none')
         
     return info
+    
+# string together knack object
+def string_knack_obj(obj_num):
+    return 'object_'+ str(obj_num)
     
 # for authorization, authentication
 def add_knack_headers(request):

@@ -34,31 +34,32 @@ def get_knack_records(obj_num, page="1"):
     
     try:
         r = urllib2.urlopen(request)
-        code = r.code
-        response = r
-        return json.loads(response.read())
+        return r.code, json.loads(r.read())
     except urllib2.HTTPError as err:
         return err.code
         
 
 def collect_records(obj_num):
-    data = get_knack_records(obj_num)
-    pages = data['total_pages']
-    if pages > 1:
-    
-        # first page of records
-        records = data['records']
-        range_end_boundary = pages + 1
-    
-        # start on second page always
-        for i in range(2, range_end_boundary):
-            data = get_knack_records(obj_num, str(i))
-            records += data['records']
-    
+    code, data = get_knack_records(obj_num)
+    if code == 200:
+        pages = data['total_pages']
+        if pages > 1:
+        
+            # first page of records
+            records = data['records']
+            range_end_boundary = pages + 1
+        
+            # start on second page always
+            for i in range(2, range_end_boundary):
+                code, data = get_knack_records(obj_num, str(i))
+                records += data['records']
+                
+        else:
+            records = data['records']
+        
+        return records
     else:
-        records = data['records']
-    
-    return records
+        return code
     
 def record_specs(obj_num):
     

@@ -14,3 +14,11 @@ print(records.total)
 print(records.name)
 print(dataset.title)
 print(dataset.display(dataset.types_list))
+
+def get_tuple():
+    one = 'hello'
+    two = 'goodbye'
+    return one, two
+
+first, second = get_tuple()
+print(first+' then, '+second)

@@ -24,6 +24,8 @@ knack_app_id = os.environ['KNACK_APPLICATION_ID']
     
 knack_api_key= os.environ['KNACK_API_KEY']
 
+# call to get Knack records.  Knack responses always by page, so only records on a page will be returned in the response.
+# Function directly below collects records for each page 
 def get_knack_records(obj_num, page="1"):
     
     knack_object = string_knack_obj(obj_num)
@@ -33,33 +35,36 @@ def get_knack_records(obj_num, page="1"):
     request = add_knack_headers(urllib2.Request(url))                  
     
     try:
-        r = urllib2.urlopen(request)
-        return r.code, json.loads(r.read())
+        return urllib2.urlopen(request)
     except urllib2.HTTPError as err:
-        return err.code
+        print(err)
         
 
+# special function to page through results in Knack call
 def collect_records(obj_num):
-    code, data = get_knack_records(obj_num)
-    if code == 200:
-        pages = data['total_pages']
-        if pages > 1:
-        
-            # first page of records
-            records = data['records']
-            range_end_boundary = pages + 1
-        
-            # start on second page always
-            for i in range(2, range_end_boundary):
-                code, data = get_knack_records(obj_num, str(i))
-                records += data['records']
-                
-        else:
-            records = data['records']
-        
-        return records
+    response = get_knack_records(obj_num)
+    data = json.loads(response.read())
+    pages = data['total_pages']
+    
+    # more than one page
+    if pages > 1:
+    
+        # first page of records
+        records = data['records']
+        range_end_boundary = pages + 1
+    
+        # start on second page always
+        for i in range(2, range_end_boundary):
+            response = get_knack_records(obj_num, str(i))
+            data = json.loads(response.read())
+            records += data['records']
+    
+    # only one page        
     else:
-        return code
+        records = data['records']
+    
+    return records
+    
     
 def record_specs(obj_num):
     
@@ -70,12 +75,9 @@ def record_specs(obj_num):
     request = add_knack_headers(urllib2.Request(url))
     
     try:
-        r = urllib2.urlopen(request)
-        code = r.code
-        response = r
-        return json.loads(response.read())['object']
+        return urllib2.urlopen(request)
     except urllib2.HTTPError as err:
-        return err.code
+        print(err)
     
     
     
@@ -89,17 +91,19 @@ def get_knack_dataset(ident):
     request = add_knack_headers(urllib2.Request(url))   
     
     try:
-        r = urllib2.urlopen(request)
+        return urllib2.urlopen(request)
     except urllib2.HTTPError as err:
-        r = err.code
+        print(err)
     
-    return r    
+    
 
 # provide contact object 'field_147_raw' from Knack object_2 record, see get_knack_dataset
+# need to make request for Contact object because it contains the Gov Entity id
+# which in turn is necessary to retreive phone and email info
 def get_contact_object(obj):
     attributes = obj
     
-    # contact is only one per dataset in our scheme, so can be confident in first place of all info
+    # contact is only one per dataset in our scheme
     contact_identifier = attributes[0]['id']
     
     # will have to prep request to add ID and KEY as headers
@@ -109,18 +113,18 @@ def get_contact_object(obj):
     
     try:
         r = urllib2.urlopen(request)
+        response = json.loads(r.read())
+    
+        
+        # currently method call returns email and phone, in that order
+        contact_info = get_gov_entity_info(response['field_216_raw'][0]['id'])
+        contact_info.insert(0, attributes[0]['identifier'])
+        return contact_info
     except urllib2.HTTPError as err:
-        r = err.code
+        print(err)
     
-    response = json.loads(r.read())
-    
-    # currently method call returns email and phone, in that order
-    contact_info = get_gov_entity_info(response['field_216_raw'][0]['id'])
-    
-    contact_info.insert(0, attributes[0]['identifier'])
-    
-    return contact_info
-    
+# def create_contact(obj):
+#     response = get_contact_object(obj)
 def get_gov_entity_info(identifier):
     url = 'https://api.knack.com/v1/objects/object_3/records/'+identifier
     

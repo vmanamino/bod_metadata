@@ -1,6 +1,6 @@
 from contact import Contact
 from knack import Knack
-from knack_api_library import get_contact_object
+from knack_api_library import create_contact
 import time
 
 class Dataset(Knack):
@@ -32,7 +32,7 @@ class Dataset(Knack):
     # instance values for contact
     @staticmethod
     def contact(obj):
-        contact_info = get_contact_object(obj)
+        contact_info = create_contact(obj)
         return Contact(contact_info[0], contact_info[1], contact_info[2])
     
     @staticmethod

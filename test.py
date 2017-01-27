@@ -30,6 +30,13 @@ print('time from')
 print(package.temp_from)
 print(package.temp_notes)
 
+members = [attr for attr in dir(package) if not callable(attr) and not attr.startswith("__") and not attr == 'iterate_list']
+
+print(members)
+# attrs = package.__dict__
+
+# for member in members:
+#     print(attrs[member])
 
 
 

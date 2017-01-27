@@ -5,7 +5,7 @@ from slugify import slugify
 import ckan_presets
 from package import Package
 
-class PackageNew():
+class PackageWhole():
     
     # pass in knack dataset object already transformed
     def __init__(self, dataset):
@@ -31,11 +31,8 @@ class PackageNew():
         self.source = self.iterate_list(dataset.sources_list, ckan_presets.sources)
         
         # publisher values come gov entity choices
-        # currently values are same as values got from Knack
         # provider is single, so use display method to access and present value
-        self.publisher = dataset.display(dataset.pub_list)
-        
-        
+        self.publisher = ckan_presets.gov_entities(dataset.display(dataset.pub_list))
         self.classif = ckan_presets.classifications(dataset.display(dataset.classif_list))
         
         

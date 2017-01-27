@@ -22,6 +22,8 @@ package = PackageNew(dataset)
 print(package.provider)
 print(package.btype)
 print(package.source)
+print('published by')
+print(package.publisher)
 
 
 

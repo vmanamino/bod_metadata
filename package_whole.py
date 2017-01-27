@@ -2,6 +2,7 @@
 # from datasets inventoried on Knack
 # update will exclude certain parameters
 # the motivation is to make Knack database authoritative source of metadata/documentation
+# look at dir(obj) to identify none eligible params with none values
 
 from slugify import slugify
 import ckan_presets

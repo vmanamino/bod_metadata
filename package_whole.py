@@ -3,6 +3,7 @@
 # update will exclude certain parameters
 # the motivation is to make Knack database authoritative source of metadata/documentation
 # look at dir(obj) to identify none eligible params with none values
+# http://stackoverflow.com/questions/1398022/looping-over-all-member-variables-of-a-class-in-python
 
 from slugify import slugify
 import ckan_presets

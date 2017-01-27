@@ -33,7 +33,10 @@ class Knack:
     # add function to separate list values with pipe
     @staticmethod
     def display(list_obj):
-        return '|'.join(list_obj)
+        if not list_obj == "none":
+            return '|'.join(list_obj)
+        else:
+            return list_obj
         
     @staticmethod
     def value_none(val):

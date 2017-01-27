@@ -106,5 +106,48 @@ def classifications(label):
         value = "exempt"
     return value
         
+def open_values(label):
+    value = "open"
+    if label == "no" or label == "none":
+        value = "closed"
+    return value
     
+def frequencies(label):
+    value = ""
+    if not label == "none":
+        if label == "Continuously updated":
+            value = "R/PT1S"
+        if label == "Daily":
+            value = "R/P1D"
+        if label == "Three times a week":
+            value = "R/P0.33W"
+        if label == "Semiweekly":
+            value = "R/P3.5D"
+        if label == "Weekly":
+            value = "R/P1W"
+        if label == "Three times a month":
+            value = "R/P0.33M"
+        if label == "Biweekly":
+            value = "R/P2W"
+        if label == "Semimonthly":
+            value = "R/P0.5M"
+        if label == "Monthly":
+            value = "R/P1M"
+        if label == "Bimonthly":
+            value = "R/P2M"
+        if label == "Quarterly":
+            value = "R/P3M"
+        if label == "Three times a year":
+            value = "R/P4M"
+        if label == "Semiannual":
+            value = "R/P6M"
+        if label == "Annual":
+            value = "R/P1Y"
+        if label == "Biennial":
+            value = "R/P2Y"
+        if label == "Triennial":
+            value = "R/P3Y"
+    else:
+        value = "none"
+    return value
     

@@ -1,7 +1,7 @@
 from knack_api_library import collect_records
 from dataset import Dataset
 from records import Records
-from package_new import PackageNew
+from package_whole import PackageWhole
 
 
 print(collect_records(2)[0]['id'])
@@ -17,13 +17,18 @@ print(dataset.title)
 print(dataset.display(dataset.types_list))
 print(dataset.display(dataset.classif_list))
 
-package = PackageNew(dataset)
+package = PackageWhole(dataset)
 
 print(package.provider)
 print(package.btype)
 print(package.source)
 print('published by')
 print(package.publisher)
+print(package.isopen)
+print(package.accrual_periodicity)
+print('time from')
+print(package.temp_from)
+print(package.temp_notes)
 
 
 

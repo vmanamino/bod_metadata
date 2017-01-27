@@ -16,13 +16,15 @@ class Dataset(Knack):
         self.pub_list = self.list_values(self.json['field_205_raw'])
         self.classif_list = self.list_values(self.json['field_155_raw'])
         self.open_status = self.value_none(self.json['field_308_raw'])
-        self.freq_list = self.list_values(self.json['field_139_raw'])
+        self.freq = self.list_values(self.json['field_139_raw'])
         self.time_from = self.get_date_str(self.json['field_121_raw'])
         self.time_to = self.get_date_str(self.json['field_122_raw'])
         self.time_notes = self.value_none(self.json['field_159_raw'])
         self.topics_list = self.list_values(self.json['field_146_raw'])
         self.location_list = self.list_values(self.json['field_136_raw'])
         self.keywords_list = self.list_values(self.json['field_321_raw'])
+        
+        # all datasets in Knack have a contact 
         contact_obj = self.contact(self.json['field_147_raw'])
         self.contact_point = contact_obj.fn
         self.contact_email = contact_obj.email

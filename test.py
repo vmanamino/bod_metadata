@@ -6,7 +6,7 @@ from package_whole import PackageWhole
 
 print(collect_records(2)[0]['id'])
 
-dataset = Dataset('57b21c8e67d437161a265671')
+dataset = Dataset('56a6414c2a95e21d083dc040')
 print(dataset.display(dataset.keywords_list))
 print(dataset.contact_point)
 print(Dataset.datasets)
@@ -33,10 +33,10 @@ print(package.temp_notes)
 members = [attr for attr in dir(package) if not callable(attr) and not attr.startswith("__") and not attr == 'iterate_list']
 
 print(members)
-# attrs = package.__dict__
+attrs = package.__dict__
 
-# for member in members:
-#     print(attrs[member])
+for member in members:
+    print(attrs[member])
 
 
 

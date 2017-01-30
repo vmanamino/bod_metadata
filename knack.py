@@ -14,18 +14,26 @@ class Knack:
     # function to create multiple values in case relation of object to 
     # dataset is 'many'.
     @staticmethod
-    def list_values(list_obj):
-        count = len(list_obj)
-        value_list = []
+    def list_values(body, key):
         
-        # assumes that with first element empty, no values at all
-        if count and list_obj[0]['identifier']:
-            if count > 1:
-                for obj in list_obj:
-                    value_list.append(str(obj['identifier']))
+        # check if list actually has a list. Employee earnings 56a6414c2a95e21d083dc040 did not have one
+        # for keywords, even though other fields that were empty would have a list, albeit an empty list
+        if body.has_key(key):
+            count = len(body[key])
+            print(body[key])
+            print(count)
+            value_list = []
+            
+            # assumes that with first element empty, no values at all
+            if count and body[key][0]['identifier']:
+                if count > 1:
+                    for obj in body[key]:
+                        value_list.append(str(obj['identifier']))
+                else:
+                    value_list.append(str(body[key][0]['identifier']))
+                return_obj = value_list
             else:
-                value_list.append(str(list_obj[0]['identifier']))
-            return_obj = value_list
+                return_obj = "none"
         else:
             return_obj = "none"
         return return_obj

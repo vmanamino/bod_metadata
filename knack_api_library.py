@@ -16,9 +16,6 @@ import keys
 # I guess from this that character encoding is UTF-8
 sys.setdefaultencoding('utf-8')
 
-# CKAN API key
-key = os.environ['CKAN_API_KEY'];
-
 # Knack application id and API key
 knack_app_id = os.environ['KNACK_APPLICATION_ID']
     
@@ -118,9 +115,10 @@ def gov_entity_info(ident):
         info.append(email)
     else:
         info.append('none')
-    if response['field_13_raw']['formatted']:
-        phone = response['field_13_raw']['formatted']
-        info.append(phone)
+    if response['field_13_raw']:
+        if response['field_13_raw']['formatted']:
+            phone = response['field_13_raw']['formatted']
+            info.append(phone)
     else:
         info.append('none')
     

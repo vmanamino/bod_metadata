@@ -7,7 +7,11 @@
 
 from slugify import slugify
 import ckan_presets
+import ckan_api_library
+import json, os
 from package import Package
+import urllib2
+import urllib
 
 class PackageWhole():
     
@@ -40,7 +44,7 @@ class PackageWhole():
         # publisher values come gov entity choices
         # provider is single, so use display method to access and present value
         # none eligible
-        self.publisher = ckan_presets.gov_entities(dataset.display(dataset.pub_list))
+        self.publisher = ckan_presets.owner_orgs(dataset.display(dataset.pub_list))
         
         # none eligible
         self.classif = ckan_presets.classifications(dataset.display(dataset.classif_list))
@@ -76,6 +80,55 @@ class PackageWhole():
         
         # none eligible
         self.tags = dataset.keywords_list
+        
+    # all knack packages will have the following:
+    # name
+    # description
+    # type
+    # provider
+    # publisher
+    # classification
+    # open
+    # contact point
+    def knack_package_create(self):
+        # members = [attr for attr in dir(self) 
+        #     if not callable(attr) 
+        #     and not attr.startswith("__") 
+        #     and not attr == 'iterate_list'
+        #     and not attr == "knack_package_create"]
+        
+        # create payload
+        if self.contact_point_email == "none":
+            payload = {"name": self.name, "title_translated-en": self.name_translated_en, "notes": self.notes 
+                        , "notes_translated": {"en": self.notes_translated}, "provider": self.provider
+                        , "owner_org": self.publisher, "btype": self.btype, "classification": self.classif, "isopen": self.isopen
+                        , "contact_point": self.contact_point, "contact_point_email": "opengov@cityofboston.gov"
+                        , "private": True, "license_id": "odc-pddl"
+                        
+                        
+            }
+        else:
+            if self.contact_point_phone == "none":
+                payload = {"name": self.name, "title_translated-en": self.name_translated_en, "notes": self.notes 
+                            , "notes_translated": {"en": self.notes_translated}, "provider": self.provider
+                            , "owner_org": self.publisher, "btype": self.btype, "classification": self.classif, "isopen": self.isopen
+                            , "contact_point": self.contact_point, "contact_point_email": self.contact_point_email
+                            , "private": True, "license_id": "odc-pddl"
+                            
+                            
+                }
+            else:
+                payload = {"name": self.name, "title_translated-en": self.name_translated_en, "notes": self.notes
+                            , "notes_translated": {"en": self.notes_translated}, "provider": self.provider
+                            , "owner_org": self.publisher, "btype": self.btype, "classification": self.classif, "isopen": self.isopen
+                            , "contact_point": self.contact_point, "contact_point_email": self.contact_point_email
+                            , "contact_point_phone": self.contact_point_phone
+                            , "private": True, "license_id": "odc-pddl"
+                            
+                }
+                
+        response = ckan_api_library.package_create_request(payload)
+        return response
         
         
     @staticmethod

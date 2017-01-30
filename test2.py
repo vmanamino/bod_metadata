@@ -1,0 +1,3 @@
+import ckan_api_library
+
+ckan_api_library.package_update_request()

@@ -151,3 +151,16 @@ def frequencies(label):
         value = "none"
     return value
     
+# aka owner_org
+# complete this
+def owner_orgs(label):
+    value = ""
+    if label == "Department of Innovation and Technology":
+        value = "data-cityofboston-gov"
+    elif label == "Boston Water and Sewer Commission":
+        value = "water-and-sewer-commission"
+    elif label == "Boston EMS":
+        value = "emergency-medical-services-org"
+    else:
+        value = "innovation-and-technology"
+    return value

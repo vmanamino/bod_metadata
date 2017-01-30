@@ -1,3 +1,4 @@
+import ckan_api_library
 from knack_api_library import collect_records
 from dataset import Dataset
 from records import Records
@@ -6,7 +7,7 @@ from package_whole import PackageWhole
 
 print(collect_records(2)[0]['id'])
 
-dataset = Dataset('56a6414c2a95e21d083dc040')
+dataset = Dataset('588f960178f426c7469921c4')
 print(dataset.display(dataset.keywords_list))
 print(dataset.contact_point)
 print(Dataset.datasets)
@@ -30,13 +31,24 @@ print('time from')
 print(package.temp_from)
 print(package.temp_notes)
 
-members = [attr for attr in dir(package) if not callable(attr) and not attr.startswith("__") and not attr == 'iterate_list']
+members = [attr for attr in dir(package) 
+            if not callable(attr) 
+            and not attr.startswith("__") 
+            and not attr == 'iterate_list'
+            and not attr == "knack_package_create"]
 
 print(members)
 attrs = package.__dict__
 
 for member in members:
-    print(attrs[member])
+    print(member)
+    if attrs[member] == "none":
+        print("this member has no value: "+member)
+    else:
+        value = attrs[member]
+        print(value)
+        
+print(package.knack_package_create().code)
 
 
 

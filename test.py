@@ -1,5 +1,4 @@
 import ckan_api_library
-from knack_api_library import collect_records
 from dataset import Dataset
 from object import Object
 from package_whole import PackageWhole
@@ -18,15 +17,21 @@ print(dataset.display(dataset.classif_list))
 
 package = PackageWhole(dataset)
 
+print('provided by:')
 print(package.provider)
+print('dataset types')
 print(package.btype)
+print('source')
 print(package.source)
 print('published by')
 print(package.publisher)
+print('visibility')
 print(package.isopen)
+print('frequency')
 print(package.accrual_periodicity)
 print('time from')
 print(package.temp_from)
+print('temp notes:')
 print(package.temp_notes)
 
 members = [attr for attr in dir(package) 
@@ -34,7 +39,10 @@ members = [attr for attr in dir(package)
             and not attr.startswith("__") 
             and not attr == 'iterate_list'
             and not attr == "knack_package_create_payload"
-            and not attr == "knack_package_create_send"]
+            and not attr == "knack_package_create_send"
+            and not attr == "knack_package_patch_single_source"
+            and not attr == "knack_package_patch_temp_from"
+            and not attr == "knack_package_patch_single_send"]
 
 print(members)
 attrs = package.__dict__
@@ -47,8 +55,12 @@ for member in members:
         value = attrs[member]
         print(value)
         
-print(package.knack_package_create_payload())
-print(package.knack_package_create_send().code)
+source = package.knack_package_patch_single_source()
+print(source)
+print(package.knack_package_patch_single_send(source).code)
+# print('payload to send')
+# print(package.knack_package_create_payload())
+# print(package.knack_package_create_send().code)
 
 
 

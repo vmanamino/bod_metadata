@@ -133,7 +133,32 @@ class PackageWhole():
         payload = self.knack_package_create_payload()
         response = ckan_api_library.package_create_request(payload)
         return response
+    
+    """
+    patch by parameter/field
+    """
+    
+    # patch source
+    def knack_package_patch_single_source(self):
+        payload = {"id": self.name, "source": self.source}
+        return payload
+    
+    def knack_package_patch_temp_from(self):
+        pass
+    
+    # patch in batch
+    # if field is none eligible, and if value is indeed none
+    # then skip patch request, otherwise proceed
+    
+    # patch single
+    # in this case, certain that field has value in knack and the field
+    # needs to be updated on ckan
+    @staticmethod
+    def knack_package_patch_single_send(payload):
+        return ckan_api_library.package_patch_request(payload)
         
+    # iterate through list and assign values for each label
+    # values correspond to presets in boston ckan schema
     @staticmethod
     def iterate_list(labels, fun):
         values = []

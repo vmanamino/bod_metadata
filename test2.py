@@ -6,6 +6,6 @@ dataset = Object(2)
 print(dataset.name)
 
 for record in dataset.records:
-    print(record['field_5_raw'])
+    print(record['id'])
     
 print(dataset.total)

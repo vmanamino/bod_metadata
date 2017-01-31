@@ -20,8 +20,6 @@ class Knack:
         # for keywords, even though other fields that were empty would have a list, albeit an empty list
         if body.has_key(key):
             count = len(body[key])
-            print(body[key])
-            print(count)
             value_list = []
             
             # assumes that with first element empty, no values at all

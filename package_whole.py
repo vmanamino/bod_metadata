@@ -150,6 +150,15 @@ class PackageWhole():
     # if field is none eligible, and if value is indeed none
     # then skip patch request, otherwise proceed
     
+    # patch_batch_source(self)
+    # self.source
+    # batch_check(source)
+    
+    # batch_check(field)
+    # if not none
+    # knack_package_patch_single_send
+    # write report of response codes
+    
     # patch single
     # in this case, certain that field has value in knack and the field
     # needs to be updated on ckan

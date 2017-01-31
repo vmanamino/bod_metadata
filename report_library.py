@@ -3,8 +3,9 @@
 functions to write reports
 """
 
-def batch_report(param, data, code):
-    out = open(param+'.txt', 'w')
-    out.write('%s\t%s' % (data, code))
+def batch_report(param):
+    out = open(param+'_batch.txt', 'w')
+    return out
+    
     
 

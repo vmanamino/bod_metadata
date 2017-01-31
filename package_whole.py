@@ -10,7 +10,6 @@ import ckan_presets
 import ckan_api_library
 import json, os
 from package import Package
-import report_library
 import urllib2
 import urllib
 
@@ -138,7 +137,16 @@ class PackageWhole():
     """
     patch by parameter/field
     """
+    # patch provider
+    def patch_single_provider(self):
+        payload = {"id": self.name, "provider": self.provider}
+        return payload
     
+    # patch owner, i.e. publisher
+    def patch_single_owner(self):
+        payload = {"id": self.name, "owner_org": self.publisher}
+        return payload
+        
     # patch source
     def knack_package_patch_single_source(self):
         payload = {"id": self.name, "source": self.source}
@@ -151,21 +159,27 @@ class PackageWhole():
     # if field is none eligible, and if value is indeed none
     # then skip patch request, otherwise proceed
     
+    def patch_batch_provider_send(self):
+        
+        if self.batch_check(self.provider):
+            payload = self.patch_single_provider()
+            response = self.knack_package_patch_single_send(payload)
+            return response.code
+        else:
+            return "none"
+    
     # patch_batch_source(self)
     # self.source
     # batch_check(source)
     
     def patch_batch_source_send(self):
+        
         if self.batch_check(self.source):
             payload = self.knack_package_patch_single_source()
             response = self.knack_package_patch_single_send(payload)
-            # report_library.batch_report('Source', self.source, response.code)
-            print('dataset')
-            print(self.name)
-            print('source')
-            print(self.source)
-            print('response')
-            print(response.code)
+            return response.code
+        else:
+            return "none"
             
         
     

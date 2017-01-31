@@ -61,6 +61,8 @@ def gov_entities(label):
     return value
     
 def sources(label):
+    print('function called')
+    print(label)
     value = "none"
     if not label == "none":
         
@@ -92,7 +94,8 @@ def sources(label):
         # all cases where label is same as value
         else:
             value = label
-    
+    print('value selected:')
+    print(value)
     return value
     
 def classifications(label):
@@ -156,7 +159,7 @@ def frequencies(label):
 def owner_orgs(label):
     value = ""
     if label == "Department of Innovation and Technology":
-        value = "data-cityofboston-gov"
+        value = "innovation-and-technology"
     elif label == "Boston Water and Sewer Commission":
         value = "water-and-sewer-commission"
     elif label == "Boston EMS":

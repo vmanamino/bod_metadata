@@ -55,13 +55,17 @@ def collect_records(obj_num):
     return records
     
     
-def record_specs(obj_num):
+def object_specs(obj_num):
     
     knack_object = string_knack_obj(obj_num)
     
     url = 'https://api.knack.com/v1/objects/'+knack_object
     
     return req_get(url)
+    
+def object_metadata(obj_num):
+    response = object_specs(obj_num)
+    return json.loads(response.read())['object']
     
 def get_knack_dataset(ident):
    

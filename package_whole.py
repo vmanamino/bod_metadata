@@ -127,8 +127,6 @@ class PackageWhole():
                             
                 }
                 
-        # response = ckan_api_library.package_create_request(payload)
-        # return response
         return payload
         
     def knack_package_create_send(self):

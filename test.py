@@ -1,17 +1,15 @@
 import ckan_api_library
 from knack_api_library import collect_records
 from dataset import Dataset
-from records import Records
+from object import Object
 from package_whole import PackageWhole
 
-
-print(collect_records(2)[0]['id'])
 
 dataset = Dataset('588f960178f426c7469921c4')
 print(dataset.display(dataset.keywords_list))
 print(dataset.contact_point)
 print(Dataset.datasets)
-records = Records(2)
+records = Object(2)
 print(records.total)
 print(records.name)
 print(dataset.title)

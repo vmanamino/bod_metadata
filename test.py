@@ -35,7 +35,8 @@ members = [attr for attr in dir(package)
             if not callable(attr) 
             and not attr.startswith("__") 
             and not attr == 'iterate_list'
-            and not attr == "knack_package_create"]
+            and not attr == "knack_package_create_payload"
+            and not attr == "knack_package_create_send"]
 
 print(members)
 attrs = package.__dict__
@@ -48,7 +49,8 @@ for member in members:
         value = attrs[member]
         print(value)
         
-print(package.knack_package_create().code)
+print(package.knack_package_create_payload())
+print(package.knack_package_create_send().code)
 
 
 

@@ -90,7 +90,7 @@ class PackageWhole():
     # classification
     # open
     # contact point
-    def knack_package_create(self):
+    def knack_package_create_payload(self):
         # members = [attr for attr in dir(self) 
         #     if not callable(attr) 
         #     and not attr.startswith("__") 
@@ -127,9 +127,14 @@ class PackageWhole():
                             
                 }
                 
+        # response = ckan_api_library.package_create_request(payload)
+        # return response
+        return payload
+        
+    def knack_package_create_send(self):
+        payload = self.knack_package_create_payload()
         response = ckan_api_library.package_create_request(payload)
         return response
-        
         
     @staticmethod
     def iterate_list(labels, fun):

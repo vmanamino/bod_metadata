@@ -42,7 +42,9 @@ members = [attr for attr in dir(package)
             and not attr == "knack_package_create_send"
             and not attr == "knack_package_patch_single_source"
             and not attr == "knack_package_patch_temp_from"
-            and not attr == "knack_package_patch_single_send"]
+            and not attr == "knack_package_patch_single_send"
+            and not attr == "patch_batch_source_send"
+            and not attr == "batch_check"]
 
 print(members)
 attrs = package.__dict__
@@ -55,9 +57,9 @@ for member in members:
         value = attrs[member]
         print(value)
         
-source = package.knack_package_patch_single_source()
-print(source)
-print(package.knack_package_patch_single_send(source).code)
+# source = package.knack_package_patch_single_source()
+# print(source)
+# print(package.knack_package_patch_single_send(source).code)
 # print('payload to send')
 # print(package.knack_package_create_payload())
 # print(package.knack_package_create_send().code)

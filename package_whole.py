@@ -10,6 +10,7 @@ import ckan_presets
 import ckan_api_library
 import json, os
 from package import Package
+import report_library
 import urllib2
 import urllib
 
@@ -154,10 +155,31 @@ class PackageWhole():
     # self.source
     # batch_check(source)
     
+    def patch_batch_source_send(self):
+        if self.batch_check(self.source):
+            payload = self.knack_package_patch_single_source()
+            response = self.knack_package_patch_single_send(payload)
+            # report_library.batch_report('Source', self.source, response.code)
+            print('dataset')
+            print(self.name)
+            print('source')
+            print(self.source)
+            print('response')
+            print(response.code)
+            
+        
+    
     # batch_check(field)
     # if not none
     # knack_package_patch_single_send
     # write report of response codes
+    @staticmethod
+    def batch_check(field):
+        if not field == "none":
+            return True
+        else:
+            return False
+        
     
     # patch single
     # in this case, certain that field has value in knack and the field

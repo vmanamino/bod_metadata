@@ -9,6 +9,14 @@ import keys
 
 key = os.environ['CKAN_API_KEY']
 
+def package_get_request(name):
+    
+    url = 'http://boston.ogopendata.com/api/3/action/package_show'
+    
+    request = prep_request(url)
+    
+    return make_request(request, name)
+
 def package_create_request(payload):
     
     url = 'http://boston.ogopendata.com/api/3/action/package_create'

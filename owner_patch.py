@@ -3,7 +3,7 @@ import report_library
 import json
 
 data = ckan_api_library.public_packages()
-
+# packages = open('packages_test.txt')
 if data['code'] == 200:
     packages = data['content']
 else:
@@ -17,11 +17,13 @@ owner_exceptions = [bostonMaps, bwsc, assessing]
 
 new_owner = "innovation-and-technology"
 
-updates = report_library.batch_report('package')
+updates = report_library.batch_report('owner_org')
+errors = report_library.error_report('owner_org')
 exceptions = report_library.exception_report('owner_org')
 no_keys = report_library.no_key_report('owner_org')
 
-
+test_count = 3
+count = 0
 if not packages == "none":
     items = 0
     for name in packages:
@@ -36,13 +38,16 @@ if not packages == "none":
                     break
             if not exception:
                 payload = {"id": name, "owner_org": new_owner}
-                
-                updates.write('%s\t%s\n' % (name, data['content']['owner_org']))
-                items += 1
+                response = ckan_api_library.package_patch_request(payload)
+                if response.code == 200:
+                    updates.write('%s\t%s\t%s\n' % (name, data['content']['owner_org'], response.code))
+                    items += 1
+                else:
+                    errors.write('%s\t%s\n' % (name, response.code))
         else:
             no_keys.write('%s\n' % (name))
             items += 1
-                
+          
     if len(packages) == items:
         print('job done')
     else:

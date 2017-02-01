@@ -6,7 +6,11 @@ functions to write reports
 def batch_report(param):
     out = open(param+'_batch.txt', 'w')
     return out
-    
+
+def error_report(param):
+    out = open(param+'_errors.txt', 'w')
+    return out
+
 def exception_report(param):
     out = open(param+'_exceptions.txt', 'w')
     return out

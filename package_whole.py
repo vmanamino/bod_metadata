@@ -6,7 +6,7 @@
 # http://stackoverflow.com/questions/1398022/looping-over-all-member-variables-of-a-class-in-python
 
 from slugify import slugify
-import ckan_presets
+import ckan_values
 import ckan_api_library
 import json, os
 from package import Package
@@ -28,31 +28,31 @@ class PackageWhole():
         
         # need fixed value
         # none eligible
-        self.btype = self.iterate_list(dataset.types_list, ckan_presets.btypes)
+        self.btype = self.iterate_list(dataset.types_list, ckan_values.btypes)
         self.notes = dataset.desc
         self.notes_translated = dataset.desc
         
         # provider values come from gov entity choices
         # provider is single, so use display method to access and present value
         # none eligible
-        self.provider = ckan_presets.gov_entities(dataset.display(dataset.prov_list))
+        self.provider = ckan_values.gov_entities(dataset.display(dataset.prov_list))
         
         # source can be multiple values, in a list
         # none eligible
-        self.source = self.iterate_list(dataset.sources_list, ckan_presets.sources)
+        self.source = self.iterate_list(dataset.sources_list, ckan_values.sources)
         
         # publisher values come gov entity choices
         # provider is single, so use display method to access and present value
         # none eligible
-        self.publisher = ckan_presets.owner_orgs(dataset.display(dataset.pub_list))
+        self.publisher = ckan_values.owner_orgs(dataset.display(dataset.pub_list))
         
         # none eligible
-        self.classif = ckan_presets.classifications(dataset.display(dataset.classif_list))
-        self.isopen = ckan_presets.open_values(dataset.open_status)
+        self.classif = ckan_values.classifications(dataset.display(dataset.classif_list))
+        self.isopen = ckan_values.open_values(dataset.open_status)
         
         # update frequency is single, so ...
         # none eligible
-        self.accrual_periodicity = ckan_presets.frequencies(dataset.display(dataset.freq))
+        self.accrual_periodicity = ckan_values.frequencies(dataset.display(dataset.freq))
         
         # none eligible
         self.temp_from = dataset.time_from
@@ -133,7 +133,24 @@ class PackageWhole():
         payload = self.knack_package_create_payload()
         response = ckan_api_library.package_create_request(payload)
         return response
+        
+    """
+    patch schema preset derived fields:
+    provider
+    source
+    contact_point
+    """
+    # def patch_schema_presets(self):
+    #     payload = {"id": self.name, "provider": self.provider, "source": self.source
+    #     , "contact_point": self.contact_point}
+    #     return payload
     
+    # def patch_schema_presets_send(self):
+        
+    #     if 
+    #     payload = self.patch_schema_presets()
+        
+    #     pass
     """
     patch by parameter/field
     """
@@ -203,7 +220,7 @@ class PackageWhole():
         return ckan_api_library.package_patch_request(payload)
         
     # iterate through list and assign values for each label
-    # values correspond to presets in boston ckan schema
+    # values correspond to values in boston ckan schema
     @staticmethod
     def iterate_list(labels, fun):
         values = []

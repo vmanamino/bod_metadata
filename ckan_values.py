@@ -61,8 +61,8 @@ def gov_entities(label):
     return value
     
 def sources(label):
-    print('function called')
-    print(label)
+    # print('function called')
+    # print(label)
     value = "none"
     if not label == "none":
         
@@ -94,8 +94,8 @@ def sources(label):
         # all cases where label is same as value
         else:
             value = label
-    print('value selected:')
-    print(value)
+    # print('value selected:')
+    # print(value)
     return value
     
 def classifications(label):

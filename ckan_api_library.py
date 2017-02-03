@@ -46,7 +46,9 @@ def package_create_request(payload):
     
     request = prep_request(url)
     
-    return make_request(request, payload)
+    response = make_request(request, payload)
+    
+    return response_dict(response)
 
 def package_patch_request(payload):
     

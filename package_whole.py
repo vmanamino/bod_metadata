@@ -187,7 +187,7 @@ class PackageWhole():
         if self.batch_check(self.provider):
             payload = self.patch_single_provider()
             response = self.knack_package_patch_single_send(payload)
-            return response.code
+            return response
         else:
             return "none"
     
@@ -200,7 +200,7 @@ class PackageWhole():
         if self.batch_check(self.source):
             payload = self.knack_package_patch_single_source()
             response = self.knack_package_patch_single_send(payload)
-            return response.code
+            return response
         else:
             return "none"
             

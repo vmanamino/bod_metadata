@@ -1,6 +1,6 @@
 import ckan_api_library
 from dataset import Dataset
-from object import Object
+from objekt import Objekt
 from package_whole import PackageWhole
 
 
@@ -8,7 +8,7 @@ dataset = Dataset('588f960178f426c7469921c4')
 print(dataset.display(dataset.keywords_list))
 print(dataset.contact_point)
 print(Dataset.datasets)
-records = Object(2)
+records = Objekt(2)
 print(records.total)
 print(records.name)
 print(dataset.title)

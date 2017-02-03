@@ -6,7 +6,7 @@ Knack Objects should be referenced using a numeric ID,  this is to ensure
 unique and easy reference regardless of title changes
 """
 
-class Object:
+class Objekt:
     
     def __init__(self, obj_num):
         self.records = collect_records(obj_num)

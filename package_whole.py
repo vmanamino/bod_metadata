@@ -154,6 +154,12 @@ class PackageWhole():
     """
     patch by parameter/field
     """
+    
+    # patch description
+    def patch_single_desc(self):
+        payload = {"id": self.name, "notes": self.notes, "notes_translated": {"en":self.notes_translated}}
+        return payload
+        
     # patch provider
     def patch_single_provider(self):
         payload = {"id": self.name, "provider": self.provider}

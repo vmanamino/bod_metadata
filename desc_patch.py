@@ -9,9 +9,9 @@ package = PackageWhole(dataset)
 
 payload = package.patch_single_desc()
 
-response = package.knack_package_patch_single_send(payload)
+# response = package.knack_package_patch_single_send(payload)
 
-print(response['code'])
+# print(response['code'])
 
 # print(package.patch_single_desc())
 

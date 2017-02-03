@@ -171,7 +171,7 @@ class PackageWhole():
         return payload
         
     # patch source
-    def knack_package_patch_single_source(self):
+    def knack_patch_single_source(self):
         payload = {"id": self.name, "source": self.source}
         return payload
     
@@ -186,7 +186,7 @@ class PackageWhole():
         
         if self.batch_check(self.provider):
             payload = self.patch_single_provider()
-            response = self.knack_package_patch_single_send(payload)
+            response = self.knack_patch_single_send(payload)
             return response
         else:
             return "none"
@@ -198,8 +198,8 @@ class PackageWhole():
     def patch_batch_source_send(self):
         
         if self.batch_check(self.source):
-            payload = self.knack_package_patch_single_source()
-            response = self.knack_package_patch_single_send(payload)
+            payload = self.knack_patch_single_source()
+            response = self.knack_patch_single_send(payload)
             return response
         else:
             return "none"
@@ -222,7 +222,7 @@ class PackageWhole():
     # in this case, certain that field has value in knack and the field
     # needs to be updated on ckan
     @staticmethod
-    def knack_package_patch_single_send(payload):
+    def knack_patch_single_send(payload):
         return ckan_api_library.package_patch_request(payload)
         
     # iterate through list and assign values for each label

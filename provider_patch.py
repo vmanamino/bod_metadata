@@ -7,9 +7,9 @@ dataset = Dataset("57b21c8e67d437161a265671")
 
 package = PackageWhole(dataset)
 
-source = package.patch_single_source()
+provider = package.patch_single_provider()
 
-response_dict = package.knack_patch_single_send(source)
+response_dict = package.knack_patch_single_send(provider)
 
 print(response_dict['code'])
 print(response_dict['content'])

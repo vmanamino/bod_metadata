@@ -171,7 +171,7 @@ class PackageWhole():
         return payload
         
     # patch source
-    def knack_patch_single_source(self):
+    def patch_single_source(self):
         payload = {"id": self.name, "source": self.source}
         return payload
     

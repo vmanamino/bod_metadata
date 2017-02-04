@@ -2,6 +2,11 @@ import ckan_api_library
 import report_library
 import json
 
+"""
+This script is to patch all owner_org/publishers for all
+public packages
+"""
+
 data = ckan_api_library.public_packages()
 # packages = open('packages_test.txt')
 if data['code'] == 200:
@@ -39,11 +44,11 @@ if not packages == "none":
             if not exception:
                 payload = {"id": name, "owner_org": new_owner}
                 response = ckan_api_library.package_patch_request(payload)
-                if response.code == 200:
-                    updates.write('%s\t%s\t%s\n' % (name, data['content']['owner_org'], response.code))
+                if response['code'] == 200:
+                    updates.write('%s\t%s\t%s\n' % (name, data['content']['owner_org'], response['code']))
                     items += 1
                 else:
-                    errors.write('%s\t%s\n' % (name, response.code))
+                    errors.write('%s\t%s\n' % (name, response['code']))
         else:
             no_keys.write('%s\n' % (name))
             items += 1

@@ -140,10 +140,11 @@ class PackageWhole():
     source
     contact_point
     """
-    # def patch_schema_presets(self):
-    #     payload = {"id": self.name, "provider": self.provider, "source": self.source
-    #     , "contact_point": self.contact_point}
-    #     return payload
+    # need to add conditions for none eligible params, namely all
+    def patch_schema_presets(self):
+        payload = {"id": self.name, "provider": self.provider, "source": self.source
+        , "contact_point": self.contact_point}
+        return payload
     
     # def patch_schema_presets_send(self):
         
@@ -175,8 +176,27 @@ class PackageWhole():
         payload = {"id": self.name, "source": self.source}
         return payload
     
-    def knack_package_patch_temp_from(self):
+    def patch_temp_from(self):
         pass
+    
+    def patch_single_contact(self):
+        contact_point_email = ""
+        
+        if self.contact_point_email == "none":
+            contact_point_email = "opengov@cityofboston.gov"
+        else:
+            contact_point_email = self.contact_point_email
+            
+        if not self.contact_point_phone == "none":
+            payload = {"id": self.name, "contact_point": self.contact_point
+                , "contact_point_email": contact_point_email
+                , "contact_point_phone": self.contact_point_phone}
+        else:
+            payload = {"id": self.name, "contact_point": self.contact_point
+                , "contact_point_email": contact_point_email}
+                
+        return payload
+        
     
     # patch in batch
     # if field is none eligible, and if value is indeed none
@@ -198,7 +218,7 @@ class PackageWhole():
     def patch_batch_source_send(self):
         
         if self.batch_check(self.source):
-            payload = self.knack_patch_single_source()
+            payload = self.patch_single_source()
             response = self.knack_patch_single_send(payload)
             return response
         else:

@@ -142,9 +142,17 @@ class PackageWhole():
     """
     # need to add conditions for none eligible params, namely all
     def patch_schema_presets(self):
-        payload = {"id": self.name, "provider": self.provider, "source": self.source
-        , "contact_point": self.contact_point}
-        return payload
+        if not self.source == "none":
+            
+            payload = {"id": self.name, "provider": self.provider, "source": self.source
+            , "contact_point": self.contact_point}
+            
+        else:
+            
+            payload = {"id": self.name, "provider": self.provider
+            , "contact_point": self.contact_point}
+           
+        return payload 
     
     # def patch_schema_presets_send(self):
         

@@ -40,12 +40,16 @@ members = [attr for attr in dir(package)
             and not attr == 'iterate_list'
             and not attr == "knack_package_create_payload"
             and not attr == "knack_package_create_send"
+            and not attr == "patch_schema_presets"
             and not attr == "knack_package_patch_single_source"
-            and not attr == "knack_package_patch_temp_from"
+            and not attr == "patch_temp_from"
+            and not attr == "patch_single_contact"
+            and not attr == "patch_single_desc"
             and not attr == "patch_single_provider"
             and not attr == "patch_single_owner"
+            and not attr == "patch_single_source"
             and not attr == "patch_batch_provider_send"
-            and not attr == "knack_package_patch_single_send"
+            and not attr == "knack_patch_single_send"
             and not attr == "patch_batch_source_send"
             and not attr == "batch_check"]
 
@@ -65,8 +69,8 @@ for member in members:
 # print(package.knack_package_patch_single_send(source).code)
 # print('payload to send')
 # print(package.knack_package_create_payload())
-print(package.knack_package_create_send()['code'])
-print(package.knack_package_create_send()['content'])
+# print(package.knack_package_create_send()['code'])
+# print(package.knack_package_create_send()['content'])
 
 
 

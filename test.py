@@ -64,11 +64,11 @@ for member in members:
         value = attrs[member]
         print(value)
         
-# source = package.knack_package_patch_single_source()
-# print(source)
+source = package.patch_single_source()
+print(source)
 # print(package.knack_package_patch_single_send(source).code)
-# print('payload to send')
-# print(package.knack_package_create_payload())
+print('payload to send')
+print(package.knack_package_create_payload())
 # print(package.knack_package_create_send()['code'])
 # print(package.knack_package_create_send()['content'])
 

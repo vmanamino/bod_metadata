@@ -3,15 +3,17 @@ from dataset import Dataset
 from objekt import Objekt
 from package_whole import PackageWhole
 
-dataset = Dataset("57b21c8e67d437161a265671")
+dataset = Dataset("577d6602238f7dac4d88b8ea")
 
 package = PackageWhole(dataset)
 
 payload = package.patch_single_desc()
 
-# response = package.knack_package_patch_single_send(payload)
+# print(payload)
 
-# print(response['code'])
+response = package.knack_patch_single_send(payload)
+
+print(response['content'])
 
 # print(package.patch_single_desc())
 

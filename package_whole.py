@@ -35,7 +35,7 @@ class PackageWhole():
         # provider values come from gov entity choices
         # provider is single, so use display method to access and present value
         # none eligible
-        self.provider = ckan_values.gov_entities(dataset.display(dataset.prov_list))
+        self.provider = ckan_values.owner_orgs(dataset.display(dataset.prov_list))
         
         # source can be multiple values, in a list
         # none eligible
@@ -171,12 +171,12 @@ class PackageWhole():
         
     # patch provider
     def patch_single_provider(self):
-        payload = {"id": self.name, "provider": self.provider}
+        payload = {"id": self.name, "owner_org": self.provider}
         return payload
     
     # patch owner, i.e. publisher
     def patch_single_owner(self):
-        payload = {"id": self.name, "owner_org": self.publisher}
+        payload = {"id": self.name, "publisher": self.publisher}
         return payload
         
     # patch source

@@ -164,6 +164,69 @@ def owner_orgs(label):
         value = "water-and-sewer-commission"
     elif label == "Boston EMS":
         value = "emergency-medical-services-org"
+    elif label == "Archives and Records Management":
+        value = "archives-and-record-management-org"
+    elif label == "Assessing Department":
+        value = "assessing-department-org"
+    elif label == "Boston 311":
+        value = "boston-311-org"
+    elif label == "Boston Centers for Youth and Families":
+        value = "boston-centers-for-youth-families-org"
+    
+    # "boston-maps",
+    
+    elif label == "Boston Planning & Development Agency":
+        value = "boston-planning-development-agency-org"
+    elif label == "Boston Police Department":
+        value = "boston-police-department-org"
+    elif label == "Boston Public Library":
+        value = "boston-public-library-org"
+    elif label == "Boston Transportation Department":
+        value = "boston-transportation-department-org"
+    elif label == "Boston Water and Sewer Commission":
+        value = "boston-water-and-sewer-commission-org"
+    elif label == "City of Boston Archaeology Program":
+        value = "city-of-boston-archaeology-program-org"
+    elif label == "Consumer Affairs & Licensing Department":
+        value = "consumer-affairs-and-licensing-department-org"
+    elif label == "DoIT Data & Analytics":
+        value = "doit-data-analytics-org"
+    elif label == "Department of Neighborhood Development":
+        value = "department-of-neighborhood-development-org"
+    elif label == "Environment Department":
+        value = "environment-department-org"
+    elif label == "Fair Housing & Equity":
+        value = "fair-housing-and-equity-org"
+    elif label == "GIS Team":
+        value = "gis-team-org"
+    elif label == "Inspectional Services Department":
+        value = "inspectional-services-department-org"
+    elif label == "Intergovernmental Relations":
+        value = "intergovernmental-relations-org"
+    elif label == "Mayor's Office for Immigrant Advancement":
+        value = "mayor-s-office-for-immigrant-advancement-org"
+    elif label == "Mayor's Office of Emergency Management Services":
+        value = "mayor-s-office-of-emergency-management-services-org"
+    elif label == "Neighborhood Services":
+        value = "neighborhood-services-org"
+    elif label == "Office of Arts & Culture":
+        value = "office-of-arts-culture-org"
+    elif label == "Office of Budget Management":
+        value = "office-of-budget-management-org"
+    elif label == "Office of Economic Development":
+        value = "office-of-economic-development-org"
+    elif label == "Office of Human Resources":
+        value = "office-of-human-resources-org"
+    elif label == "Office of the Parking Clerk":
+        value = "office-of-the-parking-clerk-org"
+    elif label == "Property Management":
+        value = "property-management-org"
+    elif label == "Public Works Department":
+        value = "public-works-department-org"
+    elif label == "Purchasing Division":
+        value = "purchasing-division-org"
+    elif label == "Veterans Services":
+        value = "veterans-services-org"
     else:
-        value = "innovation-and-technology"
+        value = "department-of-innovation-and-technology-org"
     return value

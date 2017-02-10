@@ -35,10 +35,11 @@ if not packages == "none":
                 line_arr = package['content']['notes'].split('\n')
                 line_count = 0
                 for l in line_arr:
+                    l = l.strip()
                     if line_count > 0:
                         fd += '  '
-                    fd += l.strip()
-                    count += 1
+                    fd += l
+                    line_count += 1
                 
                 package_list.write('%s\t%s\n' % (package['content']['name'], fd))
         

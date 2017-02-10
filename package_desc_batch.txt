@@ -1,0 +1,51 @@
+NAME	DESC
+311-service-requests-legacy	Constituent requests for city services
+911-daily-dispatch-count-by-agency	represents the non-administrative dispatches for public safety agencies
+active-food-establishment-licenses	Listing of food establishments with active licenses
+all-section-12-alcohol-licenses	Establishments licensed by the Boston Licensing Board
+approved-building-permits	Data of approved building/construction permits
+big-belly-alerts-2014	All signals received from Big Belly trash receptacles throughout the city for the year 2014
+big-belly-locations	Locations of all Big Belly trash receptacles in the city
+boston-jobs-policy-compliance-reports	RJP Compliance Data
+boston-neighborhood-shapefiles	Neighborhood boundaries are created based on zip code, zoning district boundaries and census tract boundaries. This GIS data layer was produced by the BRA Office of Digital Cartography and GIS.  These boundaries should not be considered official neighborhood boundaries for the City of Boston.  The locations of features and boundaries shown on this map are approximate and are intended for planning and visualization purposes only. This is not intended for survey, engineering, or legal purposes.
+boston-open-budget-project-phase-descriptions	Boston Open Budget - Project Phase Descriptions
+boston-police-department-fio	BPD FIO 2011 Thru June 2015
+boston-police-department-firearms-recovery-counts	Number of firearms recovered by BPD
+boston-public-library-daily-active-user-counts	Active User Counts, see Boston About Results scorecard for further details: http://www.cityofboston.gov/bar/scorecard/details.html?contextId=111654375223408&isExternal=_external
+btd-sign-shop-completed-workorders	Workorders for sign replacement/repair
+checkbook-explorer	Checkbook Explorer
+city-of-boston-owned-property	Buildings and space owned by the City of Boston
+city-of-boston-utility-billing-data	Monthly utility billing data for all City of Boston accounts 2011 - 2015. Accounts cover all city assets including buildings, parks, street and traffic lights. Utility service types include electricity (distribution and supply), natural gas (distribution and supply), water and sewer, number 2 fuel oil, and district steam.
+cityscore-full-metric-list	Full CityScore metric list containing actual, target, and score data.See Attachments section below for a data dictionary and list of metric definitions.**Please note that CityScore captures a data snapshot once every weekday. Source systems are constantly updating, and these updates can include revisions to existing data that could affect CityScore's calculations. The most recent records are always the most accurate.In addition, you may notice null values in the data set, which indicate that CityScore has no data for a given time period. This most often occurs when a particular data source is updated on a different schedule than CityScore's calculations. We are currently working to adjust our process to allow CityScore to capture data every day, including weekends, as well as to retroactively generate values for fields created after the initial CityScore launch in January.**
+cityscore-summary	Daily average CityScoreSee Attachments section below for a data dictionary and list of metric definitions.**Please note that CityScore captures a data snapshot once every weekday. Source systems are constantly updating, and these updates can include revisions to existing data that could affect CityScore's calculations. The most recent records are always the most accurate.In addition, you may notice null values in the data set, which indicate that CityScore has no data for a given time period. This most often occurs when a particular data source is updated on a different schedule than CityScore's calculations. We are currently working to adjust our process to allow CityScore to capture data every day, including weekends, as well as to retroactively generate values for fields created after the initial CityScore launch in January.**
+cob-executive-order-open-data-4-7-2014	Executive order signed by Mayor Walsh regarding open data and transparency
+code-enforcement-building-and-property-violations	Inspectional Services violations found by Code Enforcement with citations issued
+cori-vendor-report	The CORI Vendor Report is a report of Vendors that have Contracts for $5,000 or greater.Vendors are listed more than once where the vendor has more than one contact.
+cori-vendor-report-updated-as-of-may-2016	The CORI Vendor Report is a report of Vendors that have Contracts for $5,000 or greater.Vendors are listed more than once where the vendor has more than one contact.
+crime-incident-reports-august-2015-to-date-source-new-system	Crime Incident Reports provided by Boston Police Department
+crime-incident-reports-july-2012-august-2015-source-legacy-system	Crime Incident Reports provided by Boston Police Department
+department-of-neighborhood-development-property-inventory	Department of Neighborhood Development (DND) managed city owned property. Spatial projection WGS 84 long lat (EPSG:4326) .
+dnd-managed-city-property-developable	City Of Boston Department of Neighborhood Development (DND) managed city property tax-foreclosed buildings and land potentially suitable for development. Spatial projection WGS 84 long lat (EPSG:4326)
+dnd-managed-city-property-inventory-all	Department of Neighborhood Development (DND) managed city owned property. Spatial projection WGS 84 long lat (EPSG:4326)
+economic-indicators-legacy-portal	Economic indicators collected by the Boston Redevelopment Authority. Figures subject to update.
+employee-earnings-report	City of Boston employee earnings by year.
+entertainment-licenses-legacy	Consumer Affairs Entertainment Licenses
+food-establishment-inspections	Health inspections of licensed food establishments
+fy16-cob-gen-fund-budget	FY16 COB Gen Fund Budget
+fy17-adopted-budget-data	FY17 Adopted Budget Data
+fy17-cob-gen-fund-budget	FY17 COB Gen Fund Budget
+hospital-locations	Locations of Hospitals within the city
+liquor-licenses	Alcohol licenses are issued to places of business after they receive approval from this Board and the Alcoholic Beverages Control Commission (“ABCC”).
+master-address-list	The list of all property addresses in the city
+mayors-24-hour-hotline	Mayors 24 Hour Hotline
+open-and-protected-data-policy	The policy that covers all open and proctected data within the City of Boston. Managed by the office of the CIO under the authority of Executive Order
+park-boston-monthly-transactions-by-zone-2015	Park Boston Monthly Transactions By Zone 2015
+parking-tickets-portal-web-statistics	web statistics for http://www.cityofboston.gov/parking/payment.asp for 2014
+public-works-active-work-zones	Public Works Active Work Zones
+street-light-control-box-electric-power-cost-usage-details	Electric Power Cost & Usage Details from Department of Public Works
+streetlight-locations	Location of all streetlights in the city
+street-light-retrofits-2014	List of all LED retrofitted street lights.
+street-sweeping-schedules	Current street sweeping schedules
+trash-schedules-by-address	trash/recycling schedules by address
+vehicle-excise-tax-2014	vehicle tax bills for Boston residents for 2014
+wicked-free-wi-fi-daily-connections	Counts of the number of connections to Wicked Free Wi-Fi by neighborhood

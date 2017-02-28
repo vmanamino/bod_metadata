@@ -12,7 +12,9 @@ key = os.environ['CKAN_API_KEY']
 # these packages i think are set to public, i.e. private = false
 def get_public_packages():
     
-    url = "http://boston.ogopendata.com/api/3/action/package_list"
+    # url = "http://boston.ogopendata.com/api/3/action/package_list"
+    
+    url = "https://data.boston.gov/api/3/action/package_list"
     
     request = prep_request(url)
     

@@ -54,7 +54,9 @@ def package_create_request(payload):
 
 def package_patch_request(payload):
     
-    url = 'http://boston.ogopendata.com/api/3/action/package_patch'
+    # url = 'http://boston.ogopendata.com/api/3/action/package_patch'
+    
+    url = "https://data.boston.gov/api/3/action/package_patch"
     
     request = prep_request(url)
     

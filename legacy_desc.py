@@ -21,6 +21,12 @@ response = get_sheet()
 if response.code == 200:
     data = json.loads(response.read())
     for title in data:
-        print(title['NAME'])
+        if title['Order of upload']:
+            eyedee = title['NAME']
+            new_desc = title['NEW DESC']
+            payload = {"id": eyedee, "notes": new_desc, 
+            "notes_translated": {"en": new_desc}}
+            response = ckan_api_library.package_patch_request(payload)
+            print(response['code'])
 
 

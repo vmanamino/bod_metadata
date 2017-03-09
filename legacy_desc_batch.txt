@@ -1,12 +1,6 @@
-911-daily-dispatch-count-by-agency
-big-belly-alerts-2014
-big-belly-locations
-boston-police-department-firearms-recovery-counts
-department-of-neighborhood-development-property-inventory
-dnd-managed-city-property-developable
-dnd-managed-city-property-inventory-all
-master-address-list
-parking-tickets-portal-web-statistics
-street-sweeping-schedules
-wicked-free-wi-fi-daily-connections
-11 datasets updated with descriptions
+311-service-requests-legacy
+active-food-establishment-licenses
+all-section-12-alcohol-licenses
+approved-building-permits
+btd-sign-shop-completed-workorders
+5 datasets updated with descriptions

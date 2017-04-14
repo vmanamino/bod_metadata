@@ -1,0 +1,227 @@
+scheming_presets_version: 1
+
+about: Scheming presets for City of Boston's (CoB) Data Model
+about_url: https://github.com/wardi/ckanext-bostontheme
+presets:
+
+# Government Entity choice list used in a number of dataset fields.
+# simple lists here as a first approximation, we can build
+# code to import or manage the relations from Knack if required:
+#  * Government Entity [64]
+#    * Provider [32]
+#    * Publisher [4]
+#    * Contact [41]
+#    * Source [30]
+- preset_name: government_entity_choices
+  values:
+    choices:
+    - label: Department of Innovation and Technology
+      value: Department of Innovation and Technology
+    - label: Administration & Finance
+      value: Administration and Finance
+    - label: Archives and Records Management
+      value: Archives and Records Management
+    - label: Arts & Culture
+      value: Arts and Culture
+    - label: Assessing Department
+      value: Assessing Department
+    - label: Assistant Director of Operations, Consumer Affairs and Licensing
+      value: Assistant Director of Operations, Consumer Affairs and Licensing
+    - label: Boston 311
+      value: Boston 311
+    - label: Boston Centers for Youth and Families
+      value: Boston Centers for Youth and Families
+    - label: Boston EMS
+      value: Boston EMS
+    - label: Boston Fire Department
+      value: Boston Fire Department
+    - label: Boston Planning & Development Agency
+      value: Boston Planning and Development Agency
+    - label: Boston Police Department
+      value: Boston Police Department
+    - label: Boston Public Health Commission
+      value: Boston Public Health Commission
+    - label: Boston Public Library
+      value: Boston Public Library
+    - label: Boston Public Schools
+      value: Boston Public Schools
+    - label: Boston Residents Jobs Policy
+      value: Boston Residents Jobs Policy
+    - label: Boston Transportation Department
+      value: Boston Transportation Department
+    - label: Boston Water and Sewer Commission
+      value: Boston Water and Sewer Commission
+    - label: BPDA Management Information Systems
+      value: BPDA Management Information Systems
+    - label: BRJP Manager
+      value: BRJP Manager
+    - label: City Clerk
+      value: City Clerk
+    - label: City of Boston
+      value: City of Boston
+    - label: City of Boston Archaeology Program
+      value: City of Boston Archaeology Program
+    - label: Civic engagement
+      value: Civic engagement
+    - label: Climate and Buildings Program Manager
+      value: Climate and Buildings Program Manager
+    - label: Consumer Affairs & Licensing Department
+      value: Consumer Affairs and Licensing Department
+    - label: Data Literacy Librarian, Boston Open Data
+      value: Data Literacy Librarian, Boston Open Data
+    - label: Department of Neighborhood Development
+      value: Department of Neighborhood Development
+    - label: Deputy Director, Real Estate Management and Sales
+      value: Deputy Director, Real Estate Management and Sales
+    - label: Director of Publicity, Inspectional Services Department
+      value: Director of Publicity, Inspectional Services Department
+    - label: Director of Strategic Initiatives for the Mayor's Education Cabinet
+      value: Director of Strategic Initiatives for the Mayor's Education Cabinet
+    - label: Director of Tax Policy & Communications
+      value: Director of Tax Policy and Communications
+    - label: DoIT Data & Analytics
+      value: DoIT Data and Analytics
+    - label: Economic Development
+      value: Economic Development
+    - label: Education
+      value: Education
+    - label: Election Department
+      value: Election Department
+    - label: Energy Manager, Environment Department
+      value: Energy Manager, Environment Department
+    - label: Environment, energy, and open space
+      value: Environment, energy, and open space
+    - label: Environment Department
+      value: Environment Department
+    - label: Fair Housing & Equity
+      value: Fair Housing and Equity
+    - label: Finance, budget, & administration
+      value: Finance, budget, and administration
+    - label: GIS Team
+      value: GIS Team
+    - label: Health and human services
+      value: Health and human services
+    - label: Health Division, Inspectional Services Department
+      value: Health Division, Inspectional Services Department
+    - label: Housing & Neighborhood Development
+      value: Housing and Neighborhood Development
+    - label: Information and Technology Cabinet
+      value: Information and Technology Cabinet
+    - label: Inspectional Services Department
+      value: Inspectional Services Department
+    - label: Intergovernmental Relations
+      value: Intergovernmental Relations
+    - label: Manager, DoIT GIS Team
+      value: Manager, DoIT GIS Team
+    - label: Manager, Procurement Systems
+      value: Manager, Procurement Systems
+    - label: Mayor's Office for Immigrant Advancement
+      value: Mayor's Office for Immigrant Advancement
+    - label: Mayor's Office of Emergency Management Services
+      value: Mayor's Office of Emergency Management Services
+    - label: Mayor's Office
+      value: Mayor's Office
+    - label: Neighborhood Services
+      value: Neighborhood Services
+    - label: Non-mayoral departments
+      value: Non-mayoral departments
+    - label: Office/Finance Manager, City of Boston Environment
+      value: Office/Finance Manager, City of Boston Environment
+    - label: Office of Arts & Culture
+      value: Office of Arts and Culture
+    - label: Office of Budget Management
+      value: Office of Budget Management
+    - label: Office of Economic Development
+      value: Office of Economic Development
+    - label: Office of Human Resources
+      value: Office of Human Resources
+    - label: Office of the Parking Clerk
+      value: Office of the Parking Clerk
+    - label: Operations
+      value: Operations
+    - label: Property Management
+      value: Property Management
+    - label: Public Information Officer, Boston Fire Department
+      value: Public Information Officer, Boston Fire Department
+    - label: Public safety
+      value: Public safety
+    - label: Public Works Department
+      value: Public Works Department
+    - label: Public Works Department Construction Management
+      value: Public Works Department Construction Management
+    - label: Purchasing Division
+      value: Purchasing Division
+    - label: Senior Data Processing Systems Analyst, Public Works
+      value: Senior Data Processing Systems Analyst, Public Works
+    - label: Senior Systems and Network Operations Specialist, Boston Fire Department
+      value: Senior Systems and Network Operations Specialist, Boston Fire Department
+    - label: Streets, transportation, and sanitation
+      value: Streets, transportation, and sanitation
+    - label: System Administrator, Office of Budget Management
+      value: System Administrator, Office of Budget Management
+    - label: Veterans Services
+      value: Veterans Services
+
+- preset_name: source_choices
+  values:
+    choices:
+    - label: Airport Statistics, Massport
+      value: Airport Statistics, Massport
+    - label: ArcGIS REST Services
+      value: ArcGIS REST Services
+    - label: Boston EMS electronic patient care report system
+      value: Boston EMS electronic patient care report system
+    - label: Boston Police Department Crime Statistics Feed
+      value: Boston Police Department Crime Statistics Feed
+    - label: Boston Public Library enterprise integrated library system (ILS)
+      value: Boston Public Library enterprise integrated library system
+    - label: Bostracks Enfocus
+      value: Bostracks Enfocus
+    - label: BPDA (Boston Planning & Development Agency) contract compliance database
+      value: BPDA contract compliance database
+    - label: BRA pipeline database
+      value: BRA pipeline database
+    - label: City Clerk documents and assigned docket numbers
+      value: City Clerk documents and assigned docket numbers
+    - label: City Constituent Relationship Management (CRM) System
+      value: City Constituent Relationship Management System
+    - label: City of Boston document management system
+      value: City of Boston document management system
+    - label: City of Boston Enterprise Resource Planning System, Financials
+      value: City of Boston Enterprise Resource Planning System, Financials
+    - label: City of Boston Enterprise Resource Planning System, Human Capital Management (HCM)
+      value: City of Boston Enterprise Resource Planning System, Human Capital Management
+    - label: City of Boston Utility Coordination System
+      value: City of Boston Utility Coordination System
+    - label: City of Boston Voice over IP (VOIP) System
+      value: City of Boston Voice over IP System
+    - label: Citywide Budgeting and Forecasting Application
+      value: Citywide Budgeting and Forecasting Application
+    - label: Citywide Enterprise Energy Management System
+      value: Citywide Enterprise Energy Management System
+    - label: Citywide Enterprise Permitting and Licensing Software
+      value: Citywide Enterprise Permitting and Licensing Software
+    - label: Computer aided dispatch system (CAD)
+      value: Computer aided dispatch system
+    - label: Department of Neighborhood Development Data Server
+      value: Department of Neighborhood Development Data Server
+    - label: ENERGY STAR Portfolio Manager®
+      value: ENERGY STAR Portfolio Manager
+    - label: Internal
+      value: Internal
+    - label: IPS Data Management System (DMS)
+      value: IPS Data Management System
+    - label: Labor Market Information, The Official Website of the Executive Office of Labor and Workforce Development (EOLWD)
+      value: Labor Market Information, Executive Office of Labor and Workforce Development
+    - label: Massachusetts Artifact Tracking System (MATS)
+      value: Massachusetts Artifact Tracking System
+    - label: myParkfolio
+      value: myParkfolio
+    - label: Park Boston
+      value: Park Boston
+    - label: Parking Violation Processing System
+      value: Parking Violation Processing System
+    - label: Street and Address Management (SAM) system
+      value: Street and Address Management system
+    - label: Web based fire incident reporting system
+      value: Web based fire incident reporting system
